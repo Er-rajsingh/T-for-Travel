@@ -1,0 +1,71 @@
+from flask import Flask,render_template,url_for,request,session,redirect, flash,jsonify
+import bcrypt
+from flask_pymongo import PyMongo
+
+app = Flask(__name__)
+
+app.config['MONGODB_NAME'] = 'tfortravel'
+app.config['MONGO_URI'] = "mongodb+srv://admin:7703042310@cluster0.235dw.mongodb.net/tfortravel?ssl=true&ssl_cert_reqs=CERT_NONE"
+
+mongo = PyMongo(app)
+
+@app.route('/')
+def index():
+    if 'username' in session:
+        return render_template('main.html')
+    return render_template('index.html')
+
+@app.route('/login', methods=['POST','GET'])
+def login():
+    if request.method == 'POST':
+        users = mongo.db.users
+        login_user = users.find_one({'username' : request.form['username']})
+        if login_user:
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_user['password']):
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+            return 'Invalid username/Password'
+    return render_template('login.html')
+
+@app.route('/register' , methods=['POST','GET'])
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'username' : request.form['username']})
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name' : request.form['name'], 'username':request.form['username'],'email': request.form['email'],'password': hashpass})
+            session['username'] = request.form['username']
+            return render_template('main.html')
+        return 'User already exits!'
+    return render_template('signup.html')
+
+@app.route('/dashboard' , methods=['POST','GET'])
+def dashboard():
+    if request.method == 'POST':
+        places = mongo.db.places
+        existing_place = places.find_one({'name' : request.form['name']})
+        if existing_place is None:
+            places.insert({'name' : request.form['name'],'imgUrl': request.form['imgUrl'],'address': request.form['address'], 'temp': request.form['temp'], 'budget': request.form['budget'], 'about': request.form['about']})
+            return render_template('dashboard.html')
+        return 'Place Already exist!'
+    return render_template('dashboard.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('index.html')
+
+@app.route('/search', methods=['GET'])
+def search():
+    dc = []
+    places = mongo.db.places
+    query = {'city': request.form.get('city'),'temp': request.form.get('temp'),'budget' : request.form.get('budget')}
+    all_documents = places.find(query)
+    for document in all_documents:
+        dc = document
+    return jsonify(dc)
+
+if __name__ == '__main__':
+    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+    app.run(debug=True)
