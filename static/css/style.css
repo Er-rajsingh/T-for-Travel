@@ -402,6 +402,43 @@ select.selectmenu {
     background: #26AFF0;
 }
 
+.main-search {
+    padding: 20px 20px;
+    background-color: #11967C;
+}
+
+.search1 {
+    margin: 20px 20px;
+    display: grid;
+    grid-column: auto;
+    float: left;
+    position: relative;
+    padding: 30px 20px;
+}
+
+.city {
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.but1 {
+    padding: 10px 40px;
+    background-color: gray;
+    color: black;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
 .skill-home .icons {
     padding: 33px 0 0 0;
     width: 100%;

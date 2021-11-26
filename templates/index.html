@@ -138,6 +138,25 @@
                 </div>
             </div>
         </div>
+        <section class="container" style="margin: 20px auto;">
+            <div class="col-lg-12 main-search">
+                <h2 style="margin: 10px 300px;">Search Your Favourite Place</h2>
+                <form action="{{ url_for('search') }}" method="get" class="form-area">
+                    <div class="search1">
+                        <input type="text" name="city" placeholder="Enter State Name" class="city">
+                    </div>
+                    <div class="search1">
+                        <input type="text" name="temp" placeholder="Enter Temperature" class="city">
+                    </div>
+                    <div class="search1">
+                        <input type="text" name="budget" placeholder="budget" class="city">
+                    </div>
+                    <div class="search1">
+                        <button class="btn-group-lg but1">Search</button>
+                    </div>
+                </form>
+            </div>
+        </section>
         <section class="courses">
             <div class="container">
 
