@@ -1,6 +1,7 @@
 from flask import Flask,render_template,url_for,request,session,redirect, flash,jsonify
 import bcrypt
 from flask_pymongo import PyMongo
+from pymongo import ALL
 
 app = Flask(__name__)
 
@@ -74,11 +75,10 @@ def logout():
 def search():
     dc = []
     places = mongo.db.places
-    query = {'city': request.form.get('city'),'temp': request.form.get('temp'),'budget' : request.form.get('budget')}
+    query = {'city': request.args.get('city'),'temp': request.args.get('temp'),'budget' : request.args.get('budget')}
     all_documents = places.find(query)
-    for document in all_documents:
-        dc = document
-    return jsonify(dc)
+    return render_template('destination.html', all_documents=all_documents)
+    #return render_template('destination.html', query=query)
 
 if __name__ == '__main__':
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
