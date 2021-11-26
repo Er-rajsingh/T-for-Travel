@@ -15,6 +15,10 @@ def index():
         return render_template('index.html')
     return render_template('index.html')
 
+@app.route('/index')
+def main():
+    return render_template('index.html')
+
 @app.route('/login', methods=['POST','GET'])
 def login():
     if request.method == 'POST':
@@ -54,6 +58,10 @@ def dashboard():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/logout')
 def logout():
