@@ -28,7 +28,8 @@ def login():
             if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_user['password']):
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
-            return 'Invalid username/Password'
+            flash('Invalid Username/Password','warning')
+            return render_template('login.html')
     return render_template('login.html')
 
 @app.route('/register' , methods=['POST','GET'])
@@ -52,7 +53,8 @@ def dashboard():
         if existing_place is None:
             places.insert({'name' : request.form['name'],'imgUrl': request.form['imgUrl'],'address': request.form['address'], 'temp': request.form['temp'], 'budget': request.form['budget'], 'about': request.form['about']})
             return render_template('dashboard.html')
-        return 'Place Already exist!'
+        flash('Place Already exist!','success')
+        return render_template('dashboard.html')
     return render_template('dashboard.html')
 
 @app.route('/about')
