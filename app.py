@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('main.html')
+        return render_template('index.html')
     return render_template('index.html')
 
 @app.route('/login', methods=['POST','GET'])
@@ -50,6 +50,10 @@ def dashboard():
             return render_template('dashboard.html')
         return 'Place Already exist!'
     return render_template('dashboard.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/logout')
 def logout():
