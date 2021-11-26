@@ -75,9 +75,10 @@ def logout():
 def search():
     dc = []
     places = mongo.db.places
+    mycity = request.args.get('city')
     query = {'city': request.args.get('city'),'temp': request.args.get('temp'),'budget' : request.args.get('budget')}
     all_documents = places.find(query)
-    return render_template('destination.html', all_documents=all_documents)
+    return render_template('destination.html', all_documents=all_documents, mycity=mycity)
     #return render_template('destination.html', query=query)
 
 if __name__ == '__main__':
