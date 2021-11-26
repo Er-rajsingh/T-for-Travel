@@ -28,14 +28,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="index.html"><img style="height: 60px; width: 250px;" src="../static/img/black-logo.png" alt="logo" /></a>
+                        <a class="navbar-brand" href="{{ url_for('index') }}"><img style="height: 60px; width: 250px;" src="../static/img/black-logo.png" alt="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./contact.html">Contact Us</a></li>
-                            <li><a href="./about.html">About Us</a></li>
-                            <li><a href="./login.html">Sign Up</a></li>
+                            <li><a href="{{ url_for('index')}}">Home</a></li>
+                            <li><a href="{{ url_for('about') }}">About Us</a></li>
+                            <li class="active"><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                            <li><a href="{{ url_for('login') }}">Sign Up</a></li>
                         </ul>
                     </div>
                 </div>

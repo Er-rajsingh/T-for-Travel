@@ -33,9 +33,9 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="active"><a href="{{ url_for('index')}}">Home</a></li>
                             <li><a href="{{ url_for('about') }}">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
                             <li><a href="{{ url_for('login') }}">Sign Up</a></li>
                         </ul>
                     </div>
@@ -220,8 +220,8 @@
                             <ul class="link-list ">
                                 <li><a href="#">Terms and conditions</a></li>
                                 <li><a href="#">Privacy policy</a></li>
-                                <li><a href="../templates/about.html">About Us</a></li>
-                                <li><a href="../templates/contact.html">Contact us</a></li>
+                                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                                <li><a href="{{ url_for('contact') }}">Contact us</a></li>
                             </ul>
                         </div>
                     </div>
