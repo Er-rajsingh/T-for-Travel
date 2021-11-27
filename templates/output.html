@@ -54,32 +54,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="pageTitle">Search > {{ mycity }}</h2>
+                        <h2 class="pageTitle">Search > {{ all_output['city'] }}</h2>
                     </div>
                 </div>
             </div>
         </section>
-        {% for index in all_documents %}
         <div class="blog-card">
             <div class="meta">
                 <div class="photo">
-                    <img src="{{ index['imgUrl']}}" alt="">
+                    <img style="object-fit: scale-down !important;" src="{{ all_output['imgUrl']}}" alt="">
                 </div>
                 <ul class="details">
-                    <li class="main-city"><a href="#">City: {{ index['city']}}</a></li>
-                    <li class="main-budget"><strong>Budget: {{ index['budget']}}</strong></li>
+                    <li class="main-city"><a href="#">id: {{ all_output['_id']}}</a></li>
+                    <li class="main-city"><a href="#">City: {{ all_output['city']}}</a></li>
+                    <li class="main-budget"><strong>Budget: {{ all_output['budget']}}</strong></li>
                 </ul>
             </div>
             <div class="description">
-                <h1><strong>{{ index['name'] }}</strong></h1>
-                <h2>Address: {{ index['address'] }}</h2>
-                <h3><strong>Temperature:</strong> {{ index['temp'] }}</h3>
-                <h3><strong>Budget: </strong>&#x20B9;{{ index['budget']}}</h3>
-                <div class="read-more"><a href="{{ url_for('output',name=index['name']) }}">Know More</a></div>
+                <h1>{{ all_output['name'] }}</h1>
+                <h2>Address: {{ all_output['address'] }}</h2>
+                <p>{{ all_output['about'] }}</p>
             </div>
 
         </div>
-        {% endfor %}
         <footer>
             <div class="container ">
                 <div class="row ">
