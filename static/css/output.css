@@ -1,0 +1,45 @@
+.search-main {
+    width: 70%;
+    height: 100%;
+    padding: 20px 20px;
+}
+
+.search-result {
+    width: 65%;
+    padding: 20px 20px;
+}
+
+img {
+    height: 400px;
+    width: 600px;
+}
+
+.search-image img {
+    filter: brightness(50%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-filter: brightness(50%);
+}
+
+.search-image img:hover {
+    filter: brightness(100%);
+}
+
+.search-name {
+    display: flex;
+    padding: 10px 10px;
+}
+
+.add-temp {
+    float: left !important;
+    padding: 10px 30px;
+}
+
+.search-about {
+    padding: 10px 10px;
+    justify-content: center;
+    font-size: 20px;
+}

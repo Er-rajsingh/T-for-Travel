@@ -15,7 +15,7 @@
     <link href="../static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/destination.css">
+    <link rel="stylesheet" href="../static/css/output.css">
 
 
 </head>
@@ -54,29 +54,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="pageTitle">Search > {{ all_output['city'] }}</h2>
+                        <h3 class="pageTitle">Search > {{ all_output['city']}} > {{ all_output['name'] }}</h3>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="blog-card">
-            <div class="meta">
-                <div class="photo">
-                    <img style="object-fit: scale-down !important;" src="{{ all_output['imgUrl']}}" alt="">
+        <section class="search-main">
+            <div class="search-result">
+                <div class="search-image">
+                    <img style="box-sizing: border-box; border-radius: 10px;" src="{{ all_output['imgUrl']}}" alt="Place Image">
                 </div>
-                <ul class="details">
-                    <li class="main-city"><a href="#">id: {{ all_output['_id']}}</a></li>
-                    <li class="main-city"><a href="#">City: {{ all_output['city']}}</a></li>
-                    <li class="main-budget"><strong>Budget: {{ all_output['budget']}}</strong></li>
-                </ul>
+                <div class="search-name">
+                    <p class="add-temp"><strong>Address:</strong> {{ all_output['address'] }}</p>
+                    <p class="add-temp"><strong>Budget:</strong> {{ all_output['budget']}}</p>
+                    <p class="add-temp"><strong>Temperature:</strong> {{ all_output['temp']}}</p>
+                </div>
+                <div class="search-about">
+                    <p class="para-about">{{ all_output['about'] }}</p>
+                </div>
             </div>
-            <div class="description">
-                <h1>{{ all_output['name'] }}</h1>
-                <h2>Address: {{ all_output['address'] }}</h2>
-                <p>{{ all_output['about'] }}</p>
-            </div>
-
-        </div>
+        </section>
         <footer>
             <div class="container ">
                 <div class="row ">

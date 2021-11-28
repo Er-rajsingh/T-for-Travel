@@ -82,10 +82,12 @@ def search():
 
 @app.route('/output/<name>', methods=['GET'])
 def output(name):
-    raj = name
-    places = mongo.db.places
-    all_output = places.find_one({'name': raj})
-    return  render_template('output.html', all_output=all_output)
+    if 'username' in session:
+        raj = name
+        places = mongo.db.places
+        all_output = places.find_one({'name': raj})
+        return  render_template('output.html', all_output=all_output)
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
