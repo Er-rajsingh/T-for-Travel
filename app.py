@@ -5,8 +5,8 @@ from pymongo import ALL
 
 app = Flask(__name__)
 
-app.config['MONGODB_NAME'] = 'MongoDB database name'
-app.config['MONGO_URI'] = "Mongo DB url"
+app.config['MONGODB_NAME'] = 'tfortravel'
+app.config['MONGO_URI'] = "mongodb+srv://admin:7703042310@cluster0.235dw.mongodb.net/tfortravel?ssl=true&ssl_cert_reqs=CERT_NONE"
 
 mongo = PyMongo(app)
 
@@ -90,5 +90,5 @@ def output(name):
     return render_template('login.html')
 
 if __name__ == '__main__':
-    app.secret_key = 'secret_key'
+    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
     app.run(debug=True)

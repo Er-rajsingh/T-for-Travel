@@ -73,7 +73,7 @@ section {
 }
 
 .input-group {
-    top: 180px;
+    top: 140px;
     position: absolute;
     width: 280px;
     transition: .5s;
