@@ -5,8 +5,8 @@ from pymongo import ALL
 
 app = Flask(__name__)
 
-app.config['MONGODB_NAME'] = 'tfortravel'
-app.config['MONGO_URI'] = "mongodb+srv://admin:7703042310@cluster0.235dw.mongodb.net/tfortravel?ssl=true&ssl_cert_reqs=CERT_NONE"
+app.config['MONGODB_NAME'] = 'database_name'
+app.config['MONGO_URI'] = "mongodb+srv://url_for_database_connection"
 
 mongo = PyMongo(app)
 
