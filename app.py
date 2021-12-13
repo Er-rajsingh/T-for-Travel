@@ -90,5 +90,5 @@ def output(name):
     return render_template('login.html')
 
 if __name__ == '__main__':
-    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+    app.secret_key = b'secret_key'
     app.run(debug=True)
